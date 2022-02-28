@@ -21,7 +21,6 @@ class CreateBarangsTable extends Migration
             $table->string('satuan', 10);
             $table->double('harga_jual');
             $table->integer('stok');
-            $table->boolean('ditarik');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

@@ -24,7 +24,6 @@
                 <th>Satuan</th>
                 <th>Harga Jual</th>
                 <th>Stok</th>
-                <th>Tarik</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -38,11 +37,11 @@
                 <td>{{ $br->satuan }}</td>
                 <td>{{ $br->harga_jual }}</td>
                 <td>{{ $br->stok }}</td>
-                <td>
+                {{-- <td>
                     <label>
                     <input type="checkbox" class="ditarik js-switch" {{ $cek = ($br->ditarik==1?"checked":"") }}>
                     </label>
-                </td>
+                </td> --}}
                 <td>
                     <!-- Update Data -->
                     <button class="btn edit-barang btn-success" type="button"
@@ -143,7 +142,6 @@
         let satuan= button.data('satuan')
         let harga_jual= button.data('harga_jual')
         let stok= button.data('stok')
-        let ditarik= button.data('ditarik')
         let mode= button.data('mode')
         let modal= $(this)
         if(mode === "edit"){
@@ -170,17 +168,17 @@
         }
     })
 
-    $('#tbl-barang').on('click','.ditarik', function(){
-        let kode_barang = $(this).closest('tr').find('td:eq(1)').text()
-        let checked = ($(this).closest('tr').find('.ditarik').is(':checked')?1:0)
-        let data = {
-            kode_barang:kode_barang,
-            ditarik : checked,
-            _token: "{{ csrf_token() }}"
-                    };
-        $.post('{{ route("ditarik") }}', data, function(msg){
-            alert('Data Ter Switch !')
-        })
+    // $('#tbl-barang').on('click','.ditarik', function(){
+    //     let kode_barang = $(this).closest('tr').find('td:eq(1)').text()
+    //     let checked = ($(this).closest('tr').find('.ditarik').is(':checked')?1:0)
+    //     let data = {
+    //         kode_barang:kode_barang,
+    //         ditarik : checked,
+    //         _token: "{{ csrf_token() }}"
+    //                 };
+    //     $.post('{{ route("ditarik") }}', data, function(msg){
+    //         alert('Data Ter Switch !')
+    //     })
         // alert(checked)
     })
 </script>
