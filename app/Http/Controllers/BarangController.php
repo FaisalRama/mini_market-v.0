@@ -44,8 +44,7 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'satuan' => 'required',
             'harga_jual' => 'required',
-            'stok' => 'required',
-            'ditarik' => 'required'
+            'stok' => 'required'
         ]);
 
         $input = Barang::create($validated);

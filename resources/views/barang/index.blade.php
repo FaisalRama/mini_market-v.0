@@ -179,7 +179,7 @@
             _token: "{{ csrf_token() }}"
                     };
         $.post('{{ route("ditarik") }}', data, function(msg){
-            alert('msg')
+            alert('Data Ter Switch !')
         })
         // alert(checked)
     })
